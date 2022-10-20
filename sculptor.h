@@ -1,5 +1,9 @@
 #ifndef SCULPTOR_H
 #define SCULPTOR_H
+
+#include <fstream>
+#include <iomanip>
+#include <math.h>
 #include "voxel.h"
 
 class Sculptor

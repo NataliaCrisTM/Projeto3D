@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/Sculptor.dir/main.cpp.o CMakeFiles/Sculptor.dir/voxel.cpp.o CMakeFiles/Sculptor.dir/sculptor.cpp.o -o Sculptor 

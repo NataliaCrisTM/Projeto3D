@@ -1,0 +1,7 @@
+/home/davi-i/Documentos/c/naty/Projeto3D/build/CMakeFiles/install/strip.dir
+/home/davi-i/Documentos/c/naty/Projeto3D/build/CMakeFiles/install/local.dir
+/home/davi-i/Documentos/c/naty/Projeto3D/build/CMakeFiles/install.dir
+/home/davi-i/Documentos/c/naty/Projeto3D/build/CMakeFiles/list_install_components.dir
+/home/davi-i/Documentos/c/naty/Projeto3D/build/CMakeFiles/rebuild_cache.dir
+/home/davi-i/Documentos/c/naty/Projeto3D/build/CMakeFiles/edit_cache.dir
+/home/davi-i/Documentos/c/naty/Projeto3D/build/CMakeFiles/Sculptor.dir
