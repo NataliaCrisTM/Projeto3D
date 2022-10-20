@@ -5,7 +5,7 @@ Sculptor::Sculptor(int _nx, int _ny, int _nz)
 
     nx = _nx;
     ny = _ny;
-    nz - _nz;
+    nz = _nz;
 
     v =  new Voxel**[nx];
     v[0] = new Voxel*[nx * ny];
@@ -34,9 +34,9 @@ Sculptor::Sculptor(int _nx, int _ny, int _nz)
 }
 
 Sculptor::~Sculptor(){
-    delete v[0][0];
-    delete v[0];
-    delete v;
+    delete[] (v[0][0]);
+    delete[] (v[0]);
+    delete[] v;
 }
 
 void Sculptor::setColor(float r, float g, float b, float a){
@@ -140,7 +140,6 @@ void Sculptor::writeOFF(const char* filename){
     auto nVoxels = nx * ny * nz;
     fout << 8 * nVoxels << ' ' << 6 * nVoxels << " 0" << std::endl;
 
-    auto desloc = 0;
     for (int i = 0; i < nx; i++) {
         for (int j = 0; j < ny; j++) {
             for (int k = 0; k < nz; k++) {
@@ -152,13 +151,19 @@ void Sculptor::writeOFF(const char* filename){
                 fout << i - 0.5 << ' ' << j - 0.5 << ' ' << k + 0.5 << std::endl;
                 fout << i + 0.5 << ' ' << j - 0.5 << ' ' << k + 0.5 << std::endl;
                 fout << i + 0.5 << ' ' << j + 0.5 << ' ' << k + 0.5 << std::endl;
-
-                fout << '4' << desloc << ' ' << desloc + 3 << ' ' << desloc + 2 << ' ' << desloc + 1 << v[i][j][k].r << ' ' << v[i][j][k].g << ' ' << v[i][j][k].b << ' ' << v[i][j][k].a << std::endl;
-                fout << '4' << desloc + 4 << ' ' << desloc + 5 << ' ' << desloc + 6 << ' ' << desloc + 7 << v[i][j][k].r << ' ' << v[i][j][k].g << ' ' << v[i][j][k].b << ' ' << v[i][j][k].a << std::endl;
-                fout << '4' << desloc << ' ' << desloc + 1 << ' ' << desloc + 5 << ' ' << desloc + 4 << v[i][j][k].r << ' ' << v[i][j][k].g << ' ' << v[i][j][k].b << ' ' << v[i][j][k].a << std::endl;
-                fout << '4' << desloc << ' ' << desloc + 4 << ' ' << desloc + 7 << ' ' << desloc + 3 << v[i][j][k].r << ' ' << v[i][j][k].g << ' ' << v[i][j][k].b << ' ' << v[i][j][k].a << std::endl;
-                fout << '4' << desloc + 3 << ' ' << desloc + 7 << ' ' << desloc + 6 << ' ' << desloc + 2 << v[i][j][k].r << ' ' << v[i][j][k].g << ' ' << v[i][j][k].b << ' ' << v[i][j][k].a << std::endl;
-                fout << '4' << desloc + 1 << ' ' << desloc + 2 << ' ' << desloc + 6 << ' ' << desloc + 5 << v[i][j][k].r << ' ' << v[i][j][k].g << ' ' << v[i][j][k].b << ' ' << v[i][j][k].a << std::endl;
+            }
+        }
+    }
+    auto desloc = 0;
+    for (int i = 0; i < nx; i++) {
+        for (int j = 0; j < ny; j++) {
+            for (int k = 0; k < nz; k++) {
+                fout << "4 " << desloc << ' ' << desloc + 3 << ' ' << desloc + 2 << ' ' << desloc + 1 << ' ' << v[i][j][k].r << ' ' << v[i][j][k].g << ' ' << v[i][j][k].b << ' ' << v[i][j][k].a << std::endl;
+                fout << "4 " << desloc + 4 << ' ' << desloc + 5 << ' ' << desloc + 6 << ' ' << desloc + 7 << ' ' << v[i][j][k].r << ' ' << v[i][j][k].g << ' ' << v[i][j][k].b << ' ' << v[i][j][k].a << std::endl;
+                fout << "4 " << desloc << ' ' << desloc + 1 << ' ' << desloc + 5 << ' ' << desloc + 4 << ' ' << v[i][j][k].r << ' ' << v[i][j][k].g << ' ' << v[i][j][k].b << ' ' << v[i][j][k].a << std::endl;
+                fout << "4 " << desloc << ' ' << desloc + 4 << ' ' << desloc + 7 << ' ' << desloc + 3 << ' ' << v[i][j][k].r << ' ' << v[i][j][k].g << ' ' << v[i][j][k].b << ' ' << v[i][j][k].a << std::endl;
+                fout << "4 " << desloc + 3 << ' ' << desloc + 7 << ' ' << desloc + 6 << ' ' << desloc + 2 << ' ' << v[i][j][k].r << ' ' << v[i][j][k].g << ' ' << v[i][j][k].b << ' ' << v[i][j][k].a << std::endl;
+                fout << "4 " << desloc + 1 << ' ' << desloc + 2 << ' ' << desloc + 6 << ' ' << desloc + 5 << ' ' << v[i][j][k].r << ' ' << v[i][j][k].g << ' ' << v[i][j][k].b << ' ' << v[i][j][k].a << std::endl;
 
                 desloc += 8;
             }
