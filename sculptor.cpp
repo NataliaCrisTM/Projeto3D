@@ -158,12 +158,14 @@ void Sculptor::writeOFF(const char* filename){
     for (int i = 0; i < nx; i++) {
         for (int j = 0; j < ny; j++) {
             for (int k = 0; k < nz; k++) {
-                fout << "4 " << desloc << ' ' << desloc + 3 << ' ' << desloc + 2 << ' ' << desloc + 1 << ' ' << v[i][j][k].r << ' ' << v[i][j][k].g << ' ' << v[i][j][k].b << ' ' << v[i][j][k].a << std::endl;
-                fout << "4 " << desloc + 4 << ' ' << desloc + 5 << ' ' << desloc + 6 << ' ' << desloc + 7 << ' ' << v[i][j][k].r << ' ' << v[i][j][k].g << ' ' << v[i][j][k].b << ' ' << v[i][j][k].a << std::endl;
-                fout << "4 " << desloc << ' ' << desloc + 1 << ' ' << desloc + 5 << ' ' << desloc + 4 << ' ' << v[i][j][k].r << ' ' << v[i][j][k].g << ' ' << v[i][j][k].b << ' ' << v[i][j][k].a << std::endl;
-                fout << "4 " << desloc << ' ' << desloc + 4 << ' ' << desloc + 7 << ' ' << desloc + 3 << ' ' << v[i][j][k].r << ' ' << v[i][j][k].g << ' ' << v[i][j][k].b << ' ' << v[i][j][k].a << std::endl;
-                fout << "4 " << desloc + 3 << ' ' << desloc + 7 << ' ' << desloc + 6 << ' ' << desloc + 2 << ' ' << v[i][j][k].r << ' ' << v[i][j][k].g << ' ' << v[i][j][k].b << ' ' << v[i][j][k].a << std::endl;
-                fout << "4 " << desloc + 1 << ' ' << desloc + 2 << ' ' << desloc + 6 << ' ' << desloc + 5 << ' ' << v[i][j][k].r << ' ' << v[i][j][k].g << ' ' << v[i][j][k].b << ' ' << v[i][j][k].a << std::endl;
+                if (v[i][j][k].isOn) {
+                    fout << "4 " << desloc << ' ' << desloc + 3 << ' ' << desloc + 2 << ' ' << desloc + 1 << ' ' << v[i][j][k].r << ' ' << v[i][j][k].g << ' ' << v[i][j][k].b << ' ' << v[i][j][k].a << std::endl;
+                    fout << "4 " << desloc + 4 << ' ' << desloc + 5 << ' ' << desloc + 6 << ' ' << desloc + 7 << ' ' << v[i][j][k].r << ' ' << v[i][j][k].g << ' ' << v[i][j][k].b << ' ' << v[i][j][k].a << std::endl;
+                    fout << "4 " << desloc << ' ' << desloc + 1 << ' ' << desloc + 5 << ' ' << desloc + 4 << ' ' << v[i][j][k].r << ' ' << v[i][j][k].g << ' ' << v[i][j][k].b << ' ' << v[i][j][k].a << std::endl;
+                    fout << "4 " << desloc << ' ' << desloc + 4 << ' ' << desloc + 7 << ' ' << desloc + 3 << ' ' << v[i][j][k].r << ' ' << v[i][j][k].g << ' ' << v[i][j][k].b << ' ' << v[i][j][k].a << std::endl;
+                    fout << "4 " << desloc + 3 << ' ' << desloc + 7 << ' ' << desloc + 6 << ' ' << desloc + 2 << ' ' << v[i][j][k].r << ' ' << v[i][j][k].g << ' ' << v[i][j][k].b << ' ' << v[i][j][k].a << std::endl;
+                    fout << "4 " << desloc + 1 << ' ' << desloc + 2 << ' ' << desloc + 6 << ' ' << desloc + 5 << ' ' << v[i][j][k].r << ' ' << v[i][j][k].g << ' ' << v[i][j][k].b << ' ' << v[i][j][k].a << std::endl;
+                }
 
                 desloc += 8;
             }
