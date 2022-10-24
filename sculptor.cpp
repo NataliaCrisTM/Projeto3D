@@ -44,13 +44,21 @@ void Sculptor::setColor(float r, float g, float b, float a){
     this->r=r;
     this->g=g;
     this->b=b;
-    this->a=a;
+    a=a;
 
 
 }
 
 void Sculptor::putVoxel(int x, int y, int z){
-    v[x][y][z].setColor(r, g, b, a);
+    v[x][y][z].isOn = true;
+    v[x][y][z].r=r;
+    v[x][y][z].g=g;
+    v[x][y][z].b=b;
+    v[x][y][z].a=a;
+
+
+
+
 }
 
 void Sculptor::cutVoxel(int x, int y, int z){

@@ -8,7 +8,7 @@ struct Voxel {
 
   Voxel();
 
-  void setColor(float _r, float _g, float _b, float _a);
+
 };
 
 #endif // VOXEL_H
