@@ -44,7 +44,7 @@ void Sculptor::setColor(float r, float g, float b, float a){
     this->r=r;
     this->g=g;
     this->b=b;
-    a=a;
+    this->a=a;
 
 
 }
