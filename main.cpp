@@ -68,14 +68,14 @@ int main(int argc, char **argv) {
               }
               if(s.compare("putbox")==0){
                     int x0, x1, y0, y1, z0, z1;
-                    fin >> x0 >> x1 >>y0 >> z1 >> z0 >> z1;
+                    fin >> x0 >> x1 >>y0 >> y1 >> z0 >> z1;
                     fin >> r >> g >> b >>a;
                     PutBox(x0,x1,y0,y1, z0, z1,r,g,b,a).draw(t);
                   }
               if(s.compare("cutbox")==0){
                     int x0, x1, y0, y1, z0, z1;
                     fin >> x0 >> x1 >>y0 >> y1 >> z0 >> z1;
-                    CutBox(x0,y0,z0,z1, y1, z1).draw(t);
+                    CutBox(x0,x1,y0,y1, z0, z1).draw(t);
                   }
               if(s.compare("putsphere")==0){
                     int x0, y0, z0, raio;
