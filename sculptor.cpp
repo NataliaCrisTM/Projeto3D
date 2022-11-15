@@ -48,7 +48,6 @@ void Sculptor::setColor(float r, float g, float b, float a){
 
 
 }
-
 void Sculptor::putVoxel(int x, int y, int z){
     v[x][y][z].isOn = true;
     v[x][y][z].r=r;
@@ -56,85 +55,19 @@ void Sculptor::putVoxel(int x, int y, int z){
     v[x][y][z].b=b;
     v[x][y][z].a=a;
 
-
-
-
 }
-
 void Sculptor::cutVoxel(int x, int y, int z){
     v[x][y][z].isOn = false;
 }
 
-void Sculptor::putBox(int x0, int x1, int y0, int y1, int z0, int z1){
-    for(int i = x0; i<x1; i++){
-        for(int j = y0; j<y1; j++){
-            for(int k = z0; k<z1; k++){
-                putVoxel(i,j,k);
-            }
-        }
-    }
+int Sculptor::getnx(){
+    return nx;
 }
-
-void Sculptor::cutBox(int x0, int x1, int y0, int y1, int z0, int z1){
-    for(int i = x0; i<x1; i++){
-        for(int j = y0; j<y1; j++){
-            for(int k = z0; k<z1; k++){
-                cutVoxel(i,j,k);
-            }
-        }
-    }
+int Sculptor::getny(){
+    return ny;
 }
-
-void Sculptor::putSphere(int xcenter, int ycenter, int zcenter, int radius){
-    for(int i = 0; i < nx; i++){
-        for(int j = 0; j < ny; j++){
-            for(int k = 0; k < nz; k++){
-                auto soma = pow(i - xcenter, 2) + pow(j - ycenter, 2) + pow(k - zcenter, 2);
-                if (soma <= pow(radius, 2)) {
-                    putVoxel(i, j, k);
-                }
-            }
-        }
-    }
-}
-
-void Sculptor::cutSphere(int xcenter, int ycenter, int zcenter, int radius){
-    for(int i = 0; i < nx; i++){
-        for(int j = 0; j < ny; j++){
-            for(int k = 0; k < nz; k++){
-                auto soma = pow(i - xcenter, 2) + pow(j - ycenter, 2) + pow(k - zcenter, 2);
-                if (soma <= pow(radius, 2)) {
-                    cutVoxel(i, j, k);
-                }
-            }
-        }
-    }
-}
-
-void Sculptor::putEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz){
-    for(int i = 0; i < nx; i++){
-        for(int j = 0; j < ny; j++){
-            for(int k = 0; k < nz; k++){
-                auto soma = pow((i - xcenter) / rx, 2) + pow((j - ycenter) / ry, 2) + pow((k - zcenter) / rz, 2);
-                if (soma <= 1) {
-                    putVoxel(i, j, k);
-                }
-            }
-        }
-    }
-}
-
-void Sculptor::cutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz){
-    for(int i = 0; i < nx; i++){
-        for(int j = 0; j < ny; j++){
-            for(int k = 0; k < nz; k++){
-                auto soma = pow((i - xcenter) / rx, 2) + pow((j - ycenter) / ry, 2) + pow((k - zcenter) / rz, 2);
-                if (soma <= 1) {
-                    cutVoxel(i, j, k);
-                }
-            }
-        }
-    }
+int Sculptor::getnz(){
+    return nz;
 }
 
 void Sculptor::writeOFF(const char* filename){

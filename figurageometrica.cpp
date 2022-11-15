@@ -5,6 +5,4 @@ FiguraGeometrica::FiguraGeometrica()
 {
 
 }
-FiguraGeometrica::draw(Sculptor &t){
 
-}
