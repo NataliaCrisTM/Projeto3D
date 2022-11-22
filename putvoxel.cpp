@@ -1,4 +1,5 @@
 #include "putvoxel.h"
+#include <iostream>
 
 PutVoxel::PutVoxel(int x0, int y0, int z0, float r,
                    float g, float b, float a){
@@ -15,8 +16,9 @@ PutVoxel::PutVoxel(int x0, int y0, int z0, float r,
 
 void PutVoxel::draw(Sculptor &t){
 
-    t.setColor(r, g, b, a);
+
     t.putVoxel(x0, y0, z0);
+    t.setColor(r, g, b, a);
 }
 
 

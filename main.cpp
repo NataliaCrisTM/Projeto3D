@@ -11,6 +11,9 @@
 #include "putsphere.h"
 #include "putvoxel.h"
 #include <string>
+#include <fstream>
+#include <cstdlib>
+#include <iostream>
 
 using namespace std;
 
@@ -61,44 +64,44 @@ int main(int argc, char **argv) {
                 fin >> r >> g >> b >>a;
                 PutVoxel(x0,y0,z0,r,g,b,a).draw(t);
               }
-              if(s.compare("cutvoxel")==0){
+          if(s.compare("cutvoxel")==0){
                 int x0, y0,z0;
                 fin >> x0 >> y0 >>z0;
                 CutVoxel(x0,y0,z0).draw(t);
               }
-              if(s.compare("putbox")==0){
+          if(s.compare("putbox")==0){
                     int x0, x1, y0, y1, z0, z1;
                     fin >> x0 >> x1 >>y0 >> y1 >> z0 >> z1;
                     fin >> r >> g >> b >>a;
                     PutBox(x0,x1,y0,y1, z0, z1,r,g,b,a).draw(t);
-                  }
-              if(s.compare("cutbox")==0){
+              }
+          if(s.compare("cutbox")==0){
                     int x0, x1, y0, y1, z0, z1;
                     fin >> x0 >> x1 >>y0 >> y1 >> z0 >> z1;
                     CutBox(x0,x1,y0,y1, z0, z1).draw(t);
-                  }
-              if(s.compare("putsphere")==0){
+              }
+          if(s.compare("putsphere")==0){
                     int x0, y0, z0, raio;
                     fin >> x0 >> y0 >>z0 >>raio;
                     fin >> r >> g >> b >>a;
                     PutSphere(x0,y0,z0, raio, r,g,b,a).draw(t);
-                  }
-              if(s.compare("cutsphere")==0){
+              }
+          if(s.compare("cutsphere")==0){
                     int x0, y0, z0, raio;
                     fin >> x0 >> y0 >>z0 >>raio;
                     CutSphere(x0,y0,z0, raio).draw(t);
-                  }
-              if(s.compare("putellipsoid")==0){
+              }
+          if(s.compare("putellipsoid")==0){
                     int x0, y0, z0, raiox, raioy, raioz;
                     fin >> x0 >> y0 >>z0 >>raiox >>raioy>>raioz;
                     fin >> r >> g >> b >>a;
                     PutEllipsoid(x0,y0,z0, raiox,raioy, raioz, r,g,b,a).draw(t);
-                  }
-              if(s.compare("cutellipsoid")==0){
+              }
+          if(s.compare("cutellipsoid")==0){
                     int x0, y0, z0, raiox, raioy, raioz;
                     fin >> x0 >> y0 >>z0 >>raiox >>raioy>>raioz;
                     CutEllipsoid(x0,y0,z0, raiox,raioy, raioz).draw(t);
-                  }
+              }
       }
 
       t.writeOFF("teste1.off");

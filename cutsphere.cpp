@@ -1,4 +1,5 @@
 #include "cutsphere.h"
+#include <math.h>
 
 CutSphere::CutSphere(int x0, int y0, int z0, int raio)
 {

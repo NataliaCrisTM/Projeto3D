@@ -2,8 +2,8 @@
 
 Voxel::Voxel(){
 
-    r = 0,g = 0,b = 0; // Colors
-    a = 0;
+    float r = 0,g = 0,b = 0; // Colors
+    float a = 0;
     isOn = false;
 }
 
